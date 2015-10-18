@@ -1,0 +1,64 @@
+<ion-modal-view ng-controller="$issueReporterController">
+	<ion-header-bar style="background: goldenrod">
+		<div class="buttons">
+			<button class="button button-clear" style="color:#fff;" ng-click="backStep()">{{ step.backStep }}</button>
+		</div>
+		<h1 class="title">Issue Reporter</h1>
+
+		<div class="buttons">
+			<button class="button button-clear" style="color:#fff;" ng-click="nextStep()">{{ step.nextStep }}</button>
+		</div>
+	</ion-header-bar>
+	<ion-content scroll="false">
+		<div ng-show="curStep == 0">
+			<div class="issue-reporter-toolbar">
+				<div class="issue-reporter-color" data-color="#000"></div>
+				<div class="issue-reporter-color" data-color="#f00"></div>
+				<div class="issue-reporter-color" data-color="#0f0"></div>
+				<div class="issue-reporter-color" data-color="#00f"></div>
+			</div>
+			<canvas
+				id="issueCanvas"
+				width="300"
+				height="300"
+				style="border: 1px black solid"
+				ng-touchstart="drawertouchstart()"
+				ng-touchend="drawertouchend()"
+				ng-touchmove="drawertouchmove($event)"
+				ng-click="clickclick()"
+				ng-show="isReady"
+				>
+
+			</canvas>
+		</div>
+		<div ng-show="curStep == 1">
+			<div class="list">
+				<div class="item">
+					<img id="myImageReport" style="width: 50%;margin:0 auto;"/>
+
+				</div>
+				<label class="item item-input">
+					<textarea placeholder="Comments" ng-model="comment.value" style="height: 50px;"></textarea>
+				</label>
+			</div>
+		</div>
+		<style type="text/css">
+			.issue-reporter-toolbar {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 10px;
+				height: 40px;
+			}
+
+			.issue-reporter-color {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				border: 1px black solid;
+				display: inline-block;
+				margin: 5px;
+			}
+		</style>
+	</ion-content>
+</ion-modal-view>

@@ -4,7 +4,7 @@
     "xTalandier <xavier@talandier.fr>"
   ],
   "description": "Allow user to send you issues from ionic app",
-  "main": "",
+  "main": "dist/issuereporter.min.js",
   "moduleType": [],
   "keywords": [
     "ionic",

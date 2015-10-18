@@ -1,0 +1,26 @@
+{
+  "name": "ionic-issue-reporter",
+  "authors": [
+    "xTalandier <xavier@talandier.fr>"
+  ],
+  "description": "Allow user to send you issues from ionic app",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "ionic",
+    "issue",
+    "screenshot"
+  ],
+  "license": "MIT",
+  "homepage": "http://xavier.talandier.fr",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html2canvas": "~0.4.1"
+  }
+}

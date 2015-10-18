@@ -44,5 +44,9 @@ app.controller('MainController',
 		
 	}]);
 
-
 ```
+
+
+# License
+
+This repo uses the MIT license

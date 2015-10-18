@@ -50,27 +50,6 @@ gulp.task('coucou', function () {
 	console.log("COUCOU :)");
 });
 
-gulp.task('less', function (done) {
-	gulp.src(['./src/issuereporter.less'])
-		.pipe(less({
-			paths: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'bower_components')]
-		}))
-		.pipe(mobilizer('app.css', {
-			'app.css': {
-				hover: 'exclude',
-				screens: ['0px']
-			},
-			'hover.css': {
-				hover: 'only',
-				screens: ['0px']
-			}
-		}))
-		.pipe(cssmin())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest(config.dest));
-});
-
-
 gulp.task('js', function () {
 	streamqueue({objectMode: true},
 		gulp.src(config.js.libs),
@@ -78,16 +57,16 @@ gulp.task('js', function () {
 		gulp.src(['src/*.html']).pipe(templateCache({module: 'nablaware'}))
 	)
 		.pipe(sourcemaps.init())
-		.pipe(concat('issuereporter.js'))
+		.pipe(concat('ionic-issue-reporter.js'))
 		.pipe(ngAnnotate())
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(config.dest));
 });
 
 gulp.task('build', function (done) {
-	var tasks = ['less', 'js'];
+	var tasks = ['js'];
 	seq(tasks, done);
 });
 
